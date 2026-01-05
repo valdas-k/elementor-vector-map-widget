@@ -1,0 +1,72 @@
+.map-card {
+  font-family: 'Rethink Sans', sans-serif;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  transition: 0.3s all;
+  position: absolute;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-shadow: 0px 1px 16px rgba(12, 12, 13, 0.05);
+}
+
+.map-card:hover {
+  width: 200px;
+  height: 144px;
+  border-radius: 16px;
+  display: block;
+  border: 1px solid #9EA7B5;
+  padding: 7px;
+  box-shadow: 0px 16px 32px -4px rgba(12, 12, 13, 0.1), 0px 4px 4px -4px rgba(12, 12, 13, 0.05);
+  z-index: 2;
+}
+
+.map-card img {
+  width: 48px;
+  height: 48px;
+  margin: 6px;
+  border-radius: 100%;
+}
+
+.map-card:hover img {
+  margin: 0px;
+}
+
+.card-content{
+  margin-top: 5px;
+  display: none;
+  width: 100%;
+  text-align: left;
+}
+
+.map-card:hover .card-content{
+  display: block;
+}
+
+.card-content-title {
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.card-content-text {
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.card-button {
+  margin-top: 8px;
+}
+
+.button-text {
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.card-button svg{
+  height: 16px;
+  width: 16px; 
+  vertical-align: middle;
+  margin-left: 4px;
+}
