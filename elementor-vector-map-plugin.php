@@ -1,5 +1,4 @@
 <?php
-
 //Plugin info
 /*
 Plugin Name: Elementor Vector Map Plugin
@@ -9,19 +8,19 @@ Author: Valdas K
 Licence: GPLv3
 */
 
-// Prevent access from outside the Wordpress environment
+//Prevent access from outside the Wordpress environment
 if (!defined('ABSPATH')) {
   exit;
 }
 
-// Register widget
+//Register widget
 function register_elementor_widget($widgets_manager) {
   require_once (plugin_dir_path(__FILE__) . 'widgets/widget.php');
   $widgets_manager -> register(new \Elementor_Vector_Map_Widget());
 }
 add_action( 'elementor/widgets/register', 'register_elementor_widget');
 
-// Load assets
+//Load assets
 function load_assets() {
   wp_enqueue_style('style', plugin_dir_url(__FILE__) . 'assets/css/style.css');
   wp_enqueue_script('script', plugin_dir_url(__FILE__) . 'assets/js/script.js', [], false, true);
