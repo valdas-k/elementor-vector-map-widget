@@ -7,78 +7,101 @@ use Elementor\Repeater;
 use Elementor\Utils;
 use Elementor\Icons_Manager;
 
-class Elementor_Vector_Map_Widget extends Widget_Base {
+class Elementor_Vector_Map_Plugin extends Widget_Base {
   public function get_name() { return 'Vector Map'; }
 
-  public function get_title() { return esc_html__( 'Vector Map', 'elementor-vector-map-plugin' ); }
+  public function get_title() { return __( 'Vector Map', 'elementor-vector-map-plugin' ); }
 
   public function get_icon() { return 'eicon-header'; }
 
-  public function get_categories() { return ["vector-map"]; }
+  public function get_categories() { return ["layout"]; }
 
   public function get_keywords() { return ['card', 'map', 'country', 'world', 'vector']; }
 
   protected function register_controls() {
 		$this->start_controls_section(
 			'section_content', [
-				'label' => esc_html__( 'Content', 'elementor-vector-map-plugin' ),
+				'label' => __( 'Content', 'elementor-vector-map-plugin' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
 		$this->add_control (
 			'widget_color', [
-				'label' => esc_html__( 'Map Background Color', 'elementor-vector-map-plugin' ),
+				'label' => __( 'Map Background Color', 'elementor-vector-map-plugin' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
-				'selectors' => [ '{{WRAPPER}}' => 'background-color: {{VALUE}};', ],		
+				'selectors' => [ '{{WRAPPER}} .map-container' => 'background-color: {{VALUE}};', ],		
+			]
+		);
+
+		$this->add_control (
+			'enable_country_color', [
+				'label' => __( 'Enable Country Borders', 'elementor-vector-map-plugin' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'Yes', 'elementor-vector-map-plugin'),
+				'label_off' => __( 'No', 'elementor-vector-map-plugin'),
+				'return_value' => 'yes',
+				'default' => 'no',
+			]
+		);
+
+		$this->add_control (
+			'country_borders_color', [
+				'label' => __( 'Country Borders Color', 'elementor-vector-map-plugin' ),
+				'type' => Controls_Manager::COLOR,
+				'condition' => [
+					'enable_country_color' => 'yes',
+				],
+				'default' => '#ffffff',
+				'selectors' => [ '{{WRAPPER}} #europe-map' => 'stroke: {{VALUE}};', ],		
 			]
 		);
 
 		$this->add_control (
 			'list', [
-				'label' => esc_html__( 'Countries', 'elementor-vector-map-plugin' ),
+				'label' => __( 'Countries', 'elementor-vector-map-plugin' ),
 				'type' => Controls_Manager::REPEATER,
 				'fields' => [
 					[
 						'name' => 'country_selection',
-						'label' => esc_html__( 'Select Country', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Select Country', 'elementor-vector-map-plugin' ),
 						'type' => Controls_Manager::SELECT,
 						'options' => [
-							'Lithuania' => esc_html__( 'Lithuania' ),
-							'Poland' => esc_html__( 'Poland'),
-							'Germany' => esc_html__( 'Germany' ),
-							'Italy' => esc_html__( 'Italy'),
-							'Spain' => esc_html__( 'Spain'),
-							'France' => esc_html__( 'France' ),
-							'England' => esc_html__( 'England'),
-							'Norway' => esc_html__( 'Norway' ),
-							'Sweden' => esc_html__( 'Sweden'),
-							'Turkey' => esc_html__( 'Turkey' ),
-							'Ukraine' => esc_html__( 'Ukraine'),
-							'Portugal' => esc_html__( 'Portugal' ),
-							'Netherlands' => esc_html__( 'Netherlands' ),
-							'Belgium' => esc_html__( 'Belgium' ),
-							'Latvia' => esc_html__( 'Latvia' ),
-							'Ireland' => esc_html__( 'Ireland' ),
-							'Estonia' => esc_html__( 'Estonia'),
-							'Denmark' => esc_html__( 'Denmark'),
+							'Lithuania' => __( 'Lithuania' ),
+							'Poland' => __( 'Poland'),
+							'Germany' => __( 'Germany' ),
+							'Italy' => __( 'Italy'),
+							'Spain' => __( 'Spain'),
+							'France' => __( 'France' ),
+							'England' => __( 'England'),
+							'Norway' => __( 'Norway' ),
+							'Sweden' => __( 'Sweden'),
+							'Turkey' => __( 'Turkey' ),
+							'Ukraine' => __( 'Ukraine'),
+							'Netherlands' => __( 'Netherlands' ),
+							'Belgium' => __( 'Belgium' ),
+							'Latvia' => __( 'Latvia' ),
+							'Estonia' => __( 'Estonia'),
+							'Denmark' => __( 'Denmark'),
+							'Finland' => __( 'Finland'),
 						],
 						'default' => 'Lithuania',
 					],
 					[
 						'name' => 'card_image',
-						'label' => esc_html__( 'Choose Image', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Choose Image', 'elementor-vector-map-plugin' ),
 						'label_block' => true,
 						'type' => Controls_Manager::MEDIA,
 						'default' => [ 'url' => Utils::get_placeholder_image_src() ],
 					],
 					[
 						'name' => 'card_image_description',
-						'label' => esc_html__( 'Write image description', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Image description', 'elementor-vector-map-plugin' ),
+						'label_block' => true,
 						'type' => Controls_Manager::TEXT,
 						'default' => 'Map card image',
-						'placeholder' => esc_html__( 'Enter image description', 'elementor-vector-map-plugin' ),
+						'placeholder' => __( 'Image description', 'elementor-vector-map-plugin' ),
 					],
 					[
 						'name' => 'image_align',
@@ -105,10 +128,11 @@ class Elementor_Vector_Map_Widget extends Widget_Base {
 					],
 					[
 						'name' => 'title_text',
-						'label' => esc_html__( 'Card Title', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Card Title', 'elementor-vector-map-plugin' ),
 						'type' => Controls_Manager::TEXT,
+						'label_block' => true,
 						'default' => 'Card title',
-						'placeholder' => esc_html__( 'Enter Title', 'elementor-vector-map-plugin' ),
+						'placeholder' => __( 'Enter Title', 'elementor-vector-map-plugin' ),
 					],
 					[
 						'name' => 'title_align',
@@ -139,14 +163,14 @@ class Elementor_Vector_Map_Widget extends Widget_Base {
 					],
 					[
 						'name' => 'title_color',
-						'label' => esc_html__( 'Title Color', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Title Color', 'elementor-vector-map-plugin' ),
 						'default' => '#1D2430',
 						'type' => Controls_Manager::COLOR,
 						'selectors' => [ '{{WRAPPER}} .card-content-title' => 'color: {{VALUE}};', ],
 					],
 					[
 						'name' => 'title_size',
-						'label' => esc_html__( 'Title Size', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Title Size', 'elementor-vector-map-plugin' ),
 						'label_block' => true,
 						'type' => Controls_Manager::SLIDER,
 						'range' => [
@@ -163,10 +187,10 @@ class Elementor_Vector_Map_Widget extends Widget_Base {
 					],
 					[
 						'name' => 'content_text',
-						'label' => esc_html__( 'Card content', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Card content', 'elementor-vector-map-plugin' ),
 						'type' => Controls_Manager::TEXT,
 						'default' => 'Description',
-						'placeholder' => esc_html__( 'Enter Content', 'elementor-vector-map-plugin' ),
+						'placeholder' => __( 'Enter Content', 'elementor-vector-map-plugin' ),
 					],
 					[
 						'name' => 'content_align',
@@ -197,14 +221,14 @@ class Elementor_Vector_Map_Widget extends Widget_Base {
 					],
 					[
 						'name' => 'content_color',
-						'label' => esc_html__( 'Content Color', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Content Color', 'elementor-vector-map-plugin' ),
 						'default' => '#9EA7B5',
 						'type' => Controls_Manager::COLOR,
 						'selectors' => [ '{{WRAPPER}} .card-content-text' => 'color: {{VALUE}};', ],
 					],
 					[
 						'name' => 'content_size',
-						'label' => esc_html__( 'Content Size', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Content Size', 'elementor-vector-map-plugin' ),
 						'label_block' => true,
 						'type' => Controls_Manager::SLIDER,
 						'range' => [
@@ -221,14 +245,14 @@ class Elementor_Vector_Map_Widget extends Widget_Base {
 					],
 					[
 						'name' => 'button_text',
-						'label' => esc_html__( 'Button text', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Button text', 'elementor-vector-map-plugin' ),
 						'type' => Controls_Manager::TEXT,
-						'placeholder' => esc_html__( 'Enter Button Text', 'elementor-vector-map-plugin' ),
+						'placeholder' => __( 'Enter Button Text', 'elementor-vector-map-plugin' ),
 						'default' => 'More info',
 					],
 					[
 						'name' => 'button_text_size',
-						'label' => esc_html__( 'Button Text Size', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Button Text Size', 'elementor-vector-map-plugin' ),
 						'label_block' => true,
 						'type' => Controls_Manager::SLIDER,
 						'range' => [
@@ -245,31 +269,31 @@ class Elementor_Vector_Map_Widget extends Widget_Base {
 					],
 					[
 						'name' => 'button_text_color',
-						'label' => esc_html__( 'Button Text Color', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Button Text Color', 'elementor-vector-map-plugin' ),
 						'default' => '#1D2430',
 						'type' => Controls_Manager::COLOR,
 						'selectors' => [ '{{WRAPPER}} .button-text' => 'color: {{VALUE}};', ],
 					],
 					[
 						'name' => 'button_color',
-						'label' => esc_html__( 'Button Color', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Button Color', 'elementor-vector-map-plugin' ),
 						'default' => '#ffffff',
 						'type' => Controls_Manager::COLOR,
 						'selectors' => [ '{{WRAPPER}} .card-button' => 'background-color: {{VALUE}};', ],
 					],
 					[
 						'name' => 'button_link',
-						'label' => esc_html__( 'Button Link', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Button Link', 'elementor-vector-map-plugin' ),
 						'label_block' => true,
 						'type' => Controls_Manager::URL,
-						'placeholder' => esc_html__( 'Enter Button Link', 'elementor-vector-map-plugin' ),
+						'placeholder' => __( 'Enter Button Link', 'elementor-vector-map-plugin' ),
 						'default' => [
 							'url' => '#',
 						],
 					],
 					[
 						'name' => 'button_icon',
-						'label' => esc_html__( 'Button icon', 'elementor-vector-map-plugin' ),
+						'label' => __( 'Button icon', 'elementor-vector-map-plugin' ),
 						'label_block' => true,
 						'type' => Controls_Manager::ICONS,
 						'default' => [
