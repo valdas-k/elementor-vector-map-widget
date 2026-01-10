@@ -10,11 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
 
   countries.forEach(country => {
-    //Get country from id and class
+    //If country exists, adjust card position
     const countryPath = document.getElementById(country);
     const card = document.querySelector(`.${country}`);
-
-    //If country exists, adjust card position
     if (countryPath && card) {
       if (country == "Lithuania") adjustPosition(card, 63, 30);
       if (country == "Poland") adjustPosition(card, 57, 45);

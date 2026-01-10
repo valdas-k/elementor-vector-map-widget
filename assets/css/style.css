@@ -10,7 +10,7 @@
   width: 60px;
   height: 60px;
   background: #ffffff;
-  transition: 0.25s all;
+  transition: 0.3s all;
   position: absolute;
   overflow: hidden;
   transform: translate(-50%, -50%);
@@ -46,17 +46,11 @@
   margin: 5px;
 }
 
-.map-card:hover img {
-  margin: 0px;
-}
+.map-card:hover img { margin: 0px; }
 
-.map-card:hover .card-content {
-  row-gap: 8px;
-}
+.map-card:hover .card-content { row-gap: 8px; }
 
-.map-card:hover .card-text {
-  row-gap: 4px;
-}
+.map-card:hover .card-text { row-gap: 4px; }
 
 .card-content-title {
   font-weight: 700;
@@ -88,19 +82,13 @@
 }
 
 @media (min-width: 625px) {
-  #europe-map {
-    height: 400px;
-  }
+  #europe-map { height: 400px; }
 }
 
 @media (min-width: 750px) {
-  #europe-map {
-    height: 475px;
-  }
+  #europe-map { height: 475px; }
 }
 
 @media (min-width: 1024px) {
-  #europe-map {
-    height: 576px;
-  }
+  #europe-map { height: 576px; }
 }

@@ -12,7 +12,7 @@ class Elementor_Vector_Map_Plugin extends Widget_Base {
 
   public function get_title() { return __( 'Vector Map', 'elementor-vector-map-plugin' ); }
 
-  public function get_icon() { return 'eicon-header'; }
+  public function get_icon() { return 'eicon-map-pin'; }
 
   public function get_categories() { return ["layout"]; }
 
@@ -55,6 +55,217 @@ class Elementor_Vector_Map_Plugin extends Widget_Base {
 				],
 				'default' => '#ffffff',
 				'selectors' => [ '{{WRAPPER}} #europe-map' => 'stroke: {{VALUE}};', ],		
+			]
+		);
+
+		$this->add_control (
+			'image_align', [
+				'label' => __( 'Title Image Alignment', 'elementor-vector-map-plugin' ),
+				'label_block' => true,
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'end' => [
+						'title' => __( 'Right', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-right',
+					],
+				],
+				'default' => 'center',
+				'toggle' => false,
+				'selectors' => [ '{{WRAPPER}} .map-card-image' => 'align-self: {{VALUE}};', ],
+			]
+		);
+
+		$this->add_control (
+			'title_align', [
+				'label' => __( 'Title Text Alignment', 'elementor-vector-map-plugin' ),
+				'label_block' => true,
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => __( 'Justify', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-justify',
+					],
+				],
+				'default' => 'left',
+				'toggle' => false,
+				'selectors' => [ '{{WRAPPER}} .card-content-title' => 'text-align: {{VALUE}};', ],
+			]
+		);
+
+		$this->add_control (
+			'title_color', [
+				'label' => __( 'Title Text Alignment', 'elementor-vector-map-plugin' ),
+				'label' => __( 'Title Color', 'elementor-vector-map-plugin' ),
+				'default' => '#1D2430',
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [ '{{WRAPPER}} .card-content-title' => 'color: {{VALUE}};', ],
+			]
+		);
+
+		$this->add_control (
+			'title_size', [
+				'label' => __( 'Title Size', 'elementor-vector-map-plugin' ),
+				'label_block' => true,
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 42,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 16,
+				],
+				'selectors' => [ '{{WRAPPER}} .card-content-title' => 'font-size: {{SIZE}}px;', ],
+			]
+		);
+
+		$this->add_control (
+			'content_align', [
+				'label' => __( 'Content Text Alignment', 'elementor-vector-map-plugin' ),
+				'label_block' => true,
+				'type' => Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => __( 'Left', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => __( 'Center', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => __( 'Right', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => __( 'Justify', 'elementor-vector-map-plugin' ),
+						'icon' => 'eicon-text-align-justify',
+					],
+				],
+				'default' => 'left',
+				'toggle' => false,
+				'selectors' => [ '{{WRAPPER}} .card-content-text' => 'text-align: {{VALUE}};', ],
+			]
+		);
+
+		$this->add_control (
+			'content_color', [
+				'label' => __( 'Title Text Alignment', 'elementor-vector-map-plugin' ),
+				'label' => __( 'Title Color', 'elementor-vector-map-plugin' ),
+				'default' => '#1D2430',
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [ '{{WRAPPER}} .card-content-text' => 'color: {{VALUE}};', ],
+			]
+		);
+
+		$this->add_control (
+			'content_size', [
+				'label' => __( 'Content Size', 'elementor-vector-map-plugin' ),
+				'label_block' => true,
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 42,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 16,
+				],
+				'selectors' => [ '{{WRAPPER}} .card-content-text' => 'font-size: {{SIZE}}px;', ],
+			]
+		);
+
+		$this->add_control (
+			'button_text_size', [
+				'label' => __( 'Button Text Size', 'elementor-vector-map-plugin' ),
+				'label_block' => true,
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 8,
+						'max' => 42,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 14,
+				],
+				'selectors' => [ '{{WRAPPER}} .button-text' => 'font-size: {{SIZE}}px;', ],
+			]
+		);
+
+		$this->add_control (
+			'button_text_color', [
+				'label' => __( 'Button Text Color', 'elementor-vector-map-plugin' ),
+				'default' => '#1D2430',
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [ '{{WRAPPER}} .button-text' => 'color: {{VALUE}};', ],
+			]
+		);
+
+		$this->add_control (
+			'button_color', [
+			'label' => __( 'Button Color', 'elementor-vector-map-plugin' ),
+			'default' => '#ffffff',
+			'type' => Controls_Manager::COLOR,
+			'selectors' => [ '{{WRAPPER}} .card-button' => 'background-color: {{VALUE}};', ],
+			]
+		);
+
+		$this->add_control (
+			'button_align', [
+			'label' => __( 'Button Alignment', 'elementor-vector-map-plugin' ),
+			'label_block' => true,
+			'type' => Controls_Manager::CHOOSE,
+			'options' => [
+				'left' => [
+					'title' => __( 'Left', 'elementor-vector-map-plugin' ),
+					'icon' => 'eicon-text-align-left',
+				],
+				'center' => [
+					'title' => __( 'Center', 'elementor-vector-map-plugin' ),
+					'icon' => 'eicon-text-align-center',
+				],
+				'right' => [
+					'title' => __( 'Right', 'elementor-vector-map-plugin' ),
+					'icon' => 'eicon-text-align-right',
+				],
+			],
+			'default' => 'center',
+			'toggle' => false,
+			'selectors' => [ '{{WRAPPER}} .card-button' => 'text-align: {{VALUE}};', ],
+			]
+		);
+		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'repeater_content', [
+				'label' => __( 'Countries', 'elementor-vector-map-plugin' ),
+				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
@@ -104,86 +315,12 @@ class Elementor_Vector_Map_Plugin extends Widget_Base {
 						'placeholder' => __( 'Image description', 'elementor-vector-map-plugin' ),
 					],
 					[
-						'name' => 'image_align',
-						'label' => __( 'Title Image Alignment', 'elementor-vector-map-plugin' ),
-						'label_block' => true,
-						'type' => Controls_Manager::CHOOSE,
-						'options' => [
-							'left' => [
-								'title' => __( 'Left', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-left',
-							],
-							'center' => [
-								'title' => __( 'Center', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-center',
-							],
-							'end' => [
-								'title' => __( 'Right', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-right',
-							],
-						],
-						'default' => 'center',
-						'toggle' => false,
-						'selectors' => [ '{{WRAPPER}} .map-card-image' => 'align-self: {{VALUE}};', ],
-					],
-					[
 						'name' => 'title_text',
 						'label' => __( 'Card Title', 'elementor-vector-map-plugin' ),
 						'type' => Controls_Manager::TEXT,
 						'label_block' => true,
 						'default' => 'Card title',
 						'placeholder' => __( 'Enter Title', 'elementor-vector-map-plugin' ),
-					],
-					[
-						'name' => 'title_align',
-						'label' => __( 'Title Text Alignment', 'elementor-vector-map-plugin' ),
-						'label_block' => true,
-						'type' => Controls_Manager::CHOOSE,
-						'options' => [
-							'left' => [
-								'title' => __( 'Left', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-left',
-							],
-							'center' => [
-								'title' => __( 'Center', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-center',
-							],
-							'right' => [
-								'title' => __( 'Right', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-right',
-							],
-							'justify' => [
-								'title' => __( 'Justify', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-justify',
-							],
-						],
-						'default' => 'left',
-						'toggle' => false,
-						'selectors' => [ '{{WRAPPER}} .card-content-title' => 'text-align: {{VALUE}};', ],
-					],
-					[
-						'name' => 'title_color',
-						'label' => __( 'Title Color', 'elementor-vector-map-plugin' ),
-						'default' => '#1D2430',
-						'type' => Controls_Manager::COLOR,
-						'selectors' => [ '{{WRAPPER}} .card-content-title' => 'color: {{VALUE}};', ],
-					],
-					[
-						'name' => 'title_size',
-						'label' => __( 'Title Size', 'elementor-vector-map-plugin' ),
-						'label_block' => true,
-						'type' => Controls_Manager::SLIDER,
-						'range' => [
-							'px' => [
-								'min' => 8,
-								'max' => 42,
-							],
-						],
-						'default' => [
-							'unit' => 'px',
-							'size' => 16,
-						],
-						'selectors' => [ '{{WRAPPER}} .card-content-title' => 'font-size: {{SIZE}}px;', ],
 					],
 					[
 						'name' => 'content_text',
@@ -193,57 +330,6 @@ class Elementor_Vector_Map_Plugin extends Widget_Base {
 						'placeholder' => __( 'Enter Content', 'elementor-vector-map-plugin' ),
 					],
 					[
-						'name' => 'content_align',
-						'label' => __( 'Content Alignment', 'elementor-vector-map-plugin' ),
-						'label_block' => true,
-						'type' => Controls_Manager::CHOOSE,
-						'options' => [
-							'left' => [
-								'title' => __( 'Left', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-left',
-							],
-							'center' => [
-								'title' => __( 'Center', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-center',
-							],
-							'right' => [
-								'title' => __( 'Right', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-right',
-							],
-							'justify' => [
-								'title' => __( 'Justify', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-justify',
-							],
-						],
-						'default' => 'left',
-						'toggle' => false,
-						'selectors' => [ '{{WRAPPER}} .card-content-text' => 'text-align: {{VALUE}};', ],
-					],
-					[
-						'name' => 'content_color',
-						'label' => __( 'Content Color', 'elementor-vector-map-plugin' ),
-						'default' => '#9EA7B5',
-						'type' => Controls_Manager::COLOR,
-						'selectors' => [ '{{WRAPPER}} .card-content-text' => 'color: {{VALUE}};', ],
-					],
-					[
-						'name' => 'content_size',
-						'label' => __( 'Content Size', 'elementor-vector-map-plugin' ),
-						'label_block' => true,
-						'type' => Controls_Manager::SLIDER,
-						'range' => [
-							'px' => [
-								'min' => 8,
-								'max' => 42,
-							],
-						],
-						'default' => [
-							'unit' => 'px',
-							'size' => 14,
-						],
-						'selectors' => [ '{{WRAPPER}} .card-content-text' => 'font-size: {{SIZE}}px;', ],
-					],
-					[
 						'name' => 'button_text',
 						'label' => __( 'Button text', 'elementor-vector-map-plugin' ),
 						'type' => Controls_Manager::TEXT,
@@ -251,35 +337,13 @@ class Elementor_Vector_Map_Plugin extends Widget_Base {
 						'default' => 'More info',
 					],
 					[
-						'name' => 'button_text_size',
-						'label' => __( 'Button Text Size', 'elementor-vector-map-plugin' ),
+						'name' => 'button_icon',
 						'label_block' => true,
-						'type' => Controls_Manager::SLIDER,
-						'range' => [
-							'px' => [
-								'min' => 8,
-								'max' => 42,
-							],
-						],
+						'type' => Controls_Manager::ICONS,
 						'default' => [
-							'unit' => 'px',
-							'size' => 14,
+							'value' => 'fas fa-arrow-right',
+							'library' => 'fa-solid',
 						],
-						'selectors' => [ '{{WRAPPER}} .button-text' => 'font-size: {{SIZE}}px;', ],
-					],
-					[
-						'name' => 'button_text_color',
-						'label' => __( 'Button Text Color', 'elementor-vector-map-plugin' ),
-						'default' => '#1D2430',
-						'type' => Controls_Manager::COLOR,
-						'selectors' => [ '{{WRAPPER}} .button-text' => 'color: {{VALUE}};', ],
-					],
-					[
-						'name' => 'button_color',
-						'label' => __( 'Button Color', 'elementor-vector-map-plugin' ),
-						'default' => '#ffffff',
-						'type' => Controls_Manager::COLOR,
-						'selectors' => [ '{{WRAPPER}} .card-button' => 'background-color: {{VALUE}};', ],
 					],
 					[
 						'name' => 'button_link',
@@ -290,39 +354,6 @@ class Elementor_Vector_Map_Plugin extends Widget_Base {
 						'default' => [
 							'url' => '#',
 						],
-					],
-					[
-						'name' => 'button_icon',
-						'label' => __( 'Button icon', 'elementor-vector-map-plugin' ),
-						'label_block' => true,
-						'type' => Controls_Manager::ICONS,
-						'default' => [
-							'value' => 'fas fa-egg',
-							'library' => 'fa-solid',
-						],
-					],
-					[
-						'name' => 'button_align',
-						'label' => __( 'Button Alignment', 'elementor-vector-map-plugin' ),
-						'label_block' => true,
-						'type' => Controls_Manager::CHOOSE,
-						'options' => [
-							'left' => [
-								'title' => __( 'Left', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-left',
-							],
-							'center' => [
-								'title' => __( 'Center', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-center',
-							],
-							'right' => [
-								'title' => __( 'Right', 'elementor-vector-map-plugin' ),
-								'icon' => 'eicon-text-align-right',
-							],
-						],
-						'default' => 'center',
-						'toggle' => false,
-						'selectors' => [ '{{WRAPPER}} .card-button' => 'text-align: {{VALUE}};', ],
 					],
 				],
 				'title_field' => '{{{ country_selection }}}',
