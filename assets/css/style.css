@@ -1,94 +1,92 @@
-#europe-map {
-  height: 300px;
-  width: 100%;
-}
-
-.map-card {
+.map-pin {
   font-family: 'Rethink Sans', sans-serif;
   border-radius: 50%;
-  border: 1px solid #a8aeb9;
+  border: 1px solid #a2a6ae;
   width: 60px;
   height: 60px;
   background: #ffffff;
-  transition: 0.3s all;
+  transition: 0.3s ease-out;
   position: absolute;
   overflow: hidden;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 1px 16px rgba(12, 12, 13, 0.05);
+  box-shadow: 0px 2px 15px #0f0f0f0d;
+  word-wrap: wrap;
+  text-align: center;
 }
 
-.map-card:hover {
+.map-pin:hover {
   width: 200px;
   min-height: 150px;
   height: auto;
   border-radius: 16px;
   display: block;
-  border: 1px solid #a8aeb9;
   padding: 8px;
-  box-shadow: 0px 16px 32px -4px rgba(12, 12, 13, 0.1), 0px 4px 4px -4px rgba(12, 12, 13, 0.05);
+  box-shadow: 0px 16px 32px -5px rgba(15, 15, 15, 0.1), 0px 5px 5px -5px rgba(15, 15, 15, 0.05);
   z-index: 2;
 }
 
-.card-content{
-  display: none;
-  width: 100%;
-}
-
-.map-card:hover .card-content, .image-container, .map-card:hover .card-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.map-card-image {
-  width: 48px;
-  height: 48px !important;
-  border-radius: 50% !important;
-  margin: 5px;
-}
-
-.map-card:hover img { margin: 0px; }
-
-.map-card:hover .card-content { row-gap: 8px; }
-
-.map-card:hover .card-text { row-gap: 4px; }
-
-.card-content-title {
+.pin-title {
   font-weight: 700;
   line-height: 120%;
+  padding-top: 8px;
+  margin-block-end: 0 !important; 
 }
 
-.card-content-text {
+.pin-description {
   font-weight: 400;
   line-height: 150%;
-  word-wrap: wrap;
+  margin-block-end: 0 !important; 
 }
 
-.button-text {
+.pin-button {
   font-weight: 400;
   line-height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 5px;
+  padding-top: 8px;
 }
 
-.card-button svg{
-  height: 16px;
-  width: 16px; 
-  vertical-align: middle;
-  margin-left: 4px;
-}
+.pin-content{ display: none; width: 100%; }
+
+.map-pin:hover .pin-content, .map-pin:hover { display: flex; flex-direction: column; }
+
+.map-pin:hover img { margin: 0px; }
+
+.pin-button svg { height: 16px; width: 16px; }
+
+#europe-map { width: 100%; height: 200px; }
+
+.pin-image { border-radius: 50% !important; margin: 5px; }
 
 @media (hover: none) {
-  .map-card:hover {
-    display: inherit;
-  }
+  .map-pin:hover { display: inherit; }
 }
 
-@media (min-width: 625px) {
-  #europe-map { height: 400px; }
+@media (max-width: 550px) {
+  .map-pin { width: 45px; height: 45px; }
+  .pin-image { width: 33px; height: 33px !important; }
 }
 
-@media (min-width: 750px) {
+@media (min-width: 550px) {
+  #europe-map { height: 275px; }
+  .map-pin { width: 60px; height: 60px; }
+  .pin-image { width: 48px; height: 48px !important; }
+}
+
+@media (min-width: 767px) {
+  #europe-map { height: 375px; }
+}
+
+@media (min-width: 950px) {
   #europe-map { height: 475px; }
 }
 
 @media (min-width: 1024px) {
   #europe-map { height: 576px; }
+}
+
+@media (min-width: 1200px) {
+  #europe-map { height: 650px; }
 }

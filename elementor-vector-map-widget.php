@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Elementor Vector Widget
+ * Plugin Name: Elementor Vector Map Widget
  * Description: Adds a repeater-based vector map section to Elementor.
  * Version:     1.0
  * Author:      Valdas Kriūnas
@@ -19,8 +19,8 @@ function register_vector_map_widget( $widgets_manager ) {
 add_action( 'elementor/widgets/register', 'register_vector_map_widget' );
 
 function load_vector_map_widget_assets() {
-  wp_enqueue_style( 'style', plugin_dir_url(__FILE__) . 'assets/css/style.css' );
-  wp_enqueue_script( 'script', plugin_dir_url(__FILE__) . 'assets/js/script.js', [], false, true );
+  wp_enqueue_style( 'style', plugin_dir_url( __FILE__ ) . 'assets/css/style.css' );
+  wp_enqueue_script( 'script', plugin_dir_url( __FILE__ ) . 'assets/js/script.js', [], false, true );
 }
 add_action( 'wp_enqueue_scripts', 'load_vector_map_widget_assets' );
 ?>

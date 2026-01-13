@@ -5,8 +5,8 @@ function adjustPosition(country, offsetX, offsetY) {
 
 document.addEventListener('DOMContentLoaded', function() {
   const countries = [
-    'Lithuania','Poland','Germany','Italy','Spain','France','England','Norway','Sweden',
-    'Turkey','Ukraine','Netherlands','Belgium','Latvia','Estonia','Denmark','Finland'
+    'Lithuania','Poland','Germany','Italy','Spain','France','England','Norway',
+    'Sweden','Turkey','Ukraine','Latvia','Estonia','Denmark','Finland'
   ];
 
   countries.forEach(country => {
@@ -18,15 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (country == "Poland") adjustPosition(card, 57, 45);
       if (country == "Germany") adjustPosition(card, 42, 46);
       if (country == "Italy") adjustPosition(card, 45, 80);
-      if (country == "Spain") adjustPosition(card, 20, 92);
-      if (country == "France") adjustPosition(card, 28, 65);
-      if (country == "England") adjustPosition(card, 24, 45);
+      if (country == "Spain") adjustPosition(card, 22, 92);
+      if (country == "France") adjustPosition(card, 30, 65);
+      if (country == "England") adjustPosition(card, 25, 45);
       if (country == "Norway") adjustPosition(card, 39, 7);
       if (country == "Sweden") adjustPosition(card, 48, 15);
       if (country == "Turkey") adjustPosition(card, 80, 95);
       if (country == "Ukraine") adjustPosition(card, 75, 57);
-      if (country == "Netherlands") adjustPosition(card, 35, 52);
-      if (country == "Belgium") adjustPosition(card, 35, 42);
       if (country == "Latvia") adjustPosition(card, 65, 20);
       if (country == "Estonia") adjustPosition(card, 66, 10);
       if (country == "Denmark") adjustPosition(card, 42, 26);
