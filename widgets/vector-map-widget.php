@@ -25,7 +25,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 				'fields' => [
 					[
 						'name' => 'country',
-						'label' => esc_html__( 'Select Country', 'elementor-vector-map-widget' ),
+						'label' => esc_html__( 'Country', 'elementor-vector-map-widget' ),
 						'type' => Elementor\Controls_Manager::SELECT,
 						'options' => [
 							'Lithuania' => esc_html__( 'Lithuania' ),
@@ -73,7 +73,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 						'name' => 'image_description',
 						'label' => esc_html__( 'Image description', 'elementor-vector-map-widget' ),
 						'type' => Elementor\Controls_Manager::TEXT,
-						'default' => esc_html__( 'Map pin image', 'elementor-vector-map-widget' ),
+						'default' => esc_html__( 'Image description', 'elementor-vector-map-widget' ),
 						'placeholder' => esc_html__( 'Image description', 'elementor-vector-map-widget' ),
 					],
 					[
@@ -99,8 +99,8 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			'enable_borders', [
 				'label' => esc_html__( 'Enable country borders', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Yes', 'elementor-vector-map-widget'),
-				'label_off' => esc_html__( 'No', 'elementor-vector-map-widget'),
+				'label_on' => esc_html__( 'Yes', 'elementor-vector-map-widget' ),
+				'label_off' => esc_html__( 'No', 'elementor-vector-map-widget' ),
 				'return_value' => 'yes',
 				'default' => 'no',
 			]
@@ -129,7 +129,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 
 		$this->add_control (
 			'description_color', [
-				'label' => esc_html__( 'Description Color', 'elementor-vector-map-widget' ),
+				'label' => esc_html__( 'Description color', 'elementor-vector-map-widget' ),
 				'default' => '#25282eff',
 				'type' => Elementor\Controls_Manager::COLOR,
 				'selectors' => [ '{{WRAPPER}} .pin-description' => 'color: {{VALUE}};', ],
@@ -269,7 +269,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 
 		$this->add_control (
 			'description_size', [
-				'label' => esc_html__( 'Description Size', 'elementor-vector-map-widget' ),
+				'label' => esc_html__( 'Description size', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -307,7 +307,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			'button_text', [
 				'label' => esc_html__( 'Button text', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::TEXT,
-				'placeholder' => esc_html__( 'Enter Button Text', 'elementor-vector-map-widget' ),
+				'placeholder' => esc_html__( 'Button text', 'elementor-vector-map-widget' ),
 				'default' => esc_html__( 'More info', 'elementor-vector-map-widget' ),
 			]
 		);

@@ -21,7 +21,7 @@
   border-radius: 16px;
   display: block;
   padding: 8px;
-  box-shadow: 0px 16px 32px -5px rgba(15, 15, 15, 0.1), 0px 5px 5px -5px rgba(15, 15, 15, 0.05);
+  box-shadow: 0px 16px 32px -5px rgba(15, 15, 15, 0.35), 0px 5px 5px -5px rgba(15, 15, 15, 0.25);
   z-index: 2;
 }
 
