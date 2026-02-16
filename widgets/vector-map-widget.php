@@ -328,7 +328,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
   protected function render() { 
 		$settings = $this->get_settings_for_display();
 		if ( ! $settings['countries_repeater'] ) { return; }
-		$map = plugin_dir_path( __FILE__ ) . '../assets/images/europe.svg'
+		$map = plugin_dir_path( __FILE__ ) . '../assets/images/europe-vector-map.svg'
 		?>
 		<?php if ( file_exists( $map ) ) { echo file_get_contents( $map ); } ?>
 		<?php foreach ( $settings['countries_repeater'] as $index => $pin ) : ?>
