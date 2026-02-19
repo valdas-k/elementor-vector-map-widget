@@ -4,9 +4,11 @@ This is a vector map widget for ***Wordpress Elementor*** website builder. It ad
 
 Vector map svg is used from freepik.com, you can find it [here](https://www.freepik.com/free-vector/map-europe-with-colors-flat-style_2090768.htm).
 
+The plugin was tested and developed using *Hello Elementor* theme.
+
 # Installation
 
-To use this widget in Elementor, first download the project folder and paste it into *wp-content/plugins* directory. Then simply activate the plugin in Wordpress.
+To use this widget in Elementor, download the project folder and paste it into *wp-content/plugins* directory. Then simply activate the plugin in Wordpress.
 
 # Licence
 
