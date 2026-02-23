@@ -7,11 +7,11 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 	public function get_icon(): string { return 'eicon-map-pin'; }
 	public function get_categories(): array { return [ 'layout' ]; }
 	public function get_keywords(): array { return [ 'card', 'map', 'country', 'world', 'vector' ]; }
-	public function get_custom_help_url(): string { return 'https://github.com/valdas-kr'; }
+	public function get_custom_help_url(): string { return 'https://github.com/valdas-k'; }
 	public function has_widget_inner_wrapper(): bool { return false; }
 	protected function is_dynamic_content(): bool { return false; }
 
-  protected function register_controls() {
+  protected function register_controls(): void {
 		$this->start_controls_section(
 			'countries_content', [
 				'label' => esc_html__( 'Countries', 'elementor-vector-map-widget' ),
@@ -19,7 +19,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'countries_repeater', [
 				'type' => Elementor\Controls_Manager::REPEATER,
 				'fields' => [
@@ -95,7 +95,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'enable_borders', [
 				'label' => esc_html__( 'Enable country borders', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::SWITCHER,
@@ -106,7 +106,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'borders_color', [
 				'label' => esc_html__( 'Country borders color', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::COLOR,
@@ -118,7 +118,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'title_color', [
 				'label' => esc_html__( 'Title color', 'elementor-vector-map-widget' ),
 				'default' => '#25282eff',
@@ -127,7 +127,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'description_color', [
 				'label' => esc_html__( 'Description color', 'elementor-vector-map-widget' ),
 				'default' => '#25282eff',
@@ -136,7 +136,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'button_text_color', [
 				'label' => esc_html__( 'Button text color', 'elementor-vector-map-widget' ),
 				'default' => '#25282eff',
@@ -145,31 +145,31 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
-		'image_align', [
-			'label' => esc_html__( 'image alignment', 'elementor-vector-map-widget' ),
-			'type' => Elementor\Controls_Manager::CHOOSE,
-			'options' => [
-				'left' => [
-					'title' => esc_html__( 'Left', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-left',
+		$this->add_control(
+			'image_align', [
+				'label' => esc_html__( 'image alignment', 'elementor-vector-map-widget' ),
+				'type' => Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'end' => [
+						'title' => esc_html__( 'Right', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-right',
+					],
 				],
-				'center' => [
-					'title' => esc_html__( 'Center', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-center',
-				],
-				'end' => [
-					'title' => esc_html__( 'Right', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-right',
-				],
-			],
-			'default' => 'center',
-			'toggle' => false,
-			'selectors' => [ '{{WRAPPER}} .pin-image' => 'align-self: {{VALUE}};', ],
-		]
+				'default' => 'center',
+				'toggle' => false,
+				'selectors' => [ '{{WRAPPER}} .pin-image' => 'align-self: {{VALUE}};', ],
+			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'title_align', [
 				'label' => esc_html__( 'Title alignment', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::CHOOSE,
@@ -197,59 +197,59 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
-		'description_align', [
-			'label' => esc_html__( 'Description alignment', 'elementor-vector-map-widget' ),
-			'type' => Elementor\Controls_Manager::CHOOSE,
-			'options' => [
-				'left' => [
-					'title' => esc_html__( 'Left', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-left',
+		$this->add_control(
+			'description_align', [
+				'label' => esc_html__( 'Description alignment', 'elementor-vector-map-widget' ),
+				'type' => Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'left' => [
+						'title' => esc_html__( 'Left', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'right' => [
+						'title' => esc_html__( 'Right', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-right',
+					],
+					'justify' => [
+						'title' => esc_html__( 'Justify', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-justify',
+					],
 				],
-				'center' => [
-					'title' => esc_html__( 'Center', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-center',
-				],
-				'right' => [
-					'title' => esc_html__( 'Right', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-right',
-				],
-				'justify' => [
-					'title' => esc_html__( 'Justify', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-justify',
-				],
-			],
-			'default' => 'left',
-			'toggle' => false,
-			'selectors' => [ '{{WRAPPER}} .pin-description' => 'text-align: {{VALUE}};', ],
+				'default' => 'left',
+				'toggle' => false,
+				'selectors' => [ '{{WRAPPER}} .pin-description' => 'text-align: {{VALUE}};', ],
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'button_align', [
-			'label' => esc_html__( 'Button alignment', 'elementor-vector-map-widget' ),
-			'type' => Elementor\Controls_Manager::CHOOSE,
-			'options' => [
-				'start' => [
-					'title' => esc_html__( 'Left', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-left',
+				'label' => esc_html__( 'Button alignment', 'elementor-vector-map-widget' ),
+				'type' => Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'start' => [
+						'title' => esc_html__( 'Left', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__( 'Center', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-center',
+					],
+					'end' => [
+						'title' => esc_html__( 'Right', 'elementor-vector-map-widget' ),
+						'icon' => 'eicon-text-align-right',
+					],
 				],
-				'center' => [
-					'title' => esc_html__( 'Center', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-center',
-				],
-				'end' => [
-					'title' => esc_html__( 'Right', 'elementor-vector-map-widget' ),
-					'icon' => 'eicon-text-align-right',
-				],
-			],
-			'default' => 'start',
-			'toggle' => false,
-			'selectors' => [ '{{WRAPPER}} .pin-button' => 'justify-content: {{VALUE}};', ],
+				'default' => 'start',
+				'toggle' => false,
+				'selectors' => [ '{{WRAPPER}} .pin-button' => 'justify-content: {{VALUE}};', ],
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'title_size', [
 				'label' => esc_html__( 'Title size', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::SLIDER,
@@ -267,7 +267,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'description_size', [
 				'label' => esc_html__( 'Description size', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::SLIDER,
@@ -285,7 +285,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'button_text_size', [
 				'label' => esc_html__( 'Button text size', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::SLIDER,
@@ -303,7 +303,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'button_text', [
 				'label' => esc_html__( 'Button text', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::TEXT,
@@ -312,7 +312,7 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 			]
 		);
 
-		$this->add_control (
+		$this->add_control(
 			'button_icon', [
 				'label' => esc_html__( 'Button icon', 'elementor-vector-map-widget' ),
 				'type' => Elementor\Controls_Manager::ICONS,
@@ -325,10 +325,10 @@ class Elementor_Vector_Map_Widget extends Elementor\Widget_Base {
 		$this->end_controls_section();
 	}
 
-  protected function render() { 
+  protected function render(): void { 
 		$settings = $this->get_settings_for_display();
 		if ( ! $settings['countries_repeater'] ) { return; }
-		$map = plugin_dir_path( __FILE__ ) . '../assets/images/europe-vector-map.svg'
+		$map = plugin_dir_path( __FILE__ ) . '../assets/images/europe-vector-map.svg';
 		?>
 		<?php if ( file_exists( $map ) ) { echo file_get_contents( $map ); } ?>
 		<?php foreach ( $settings['countries_repeater'] as $index => $pin ) : ?>

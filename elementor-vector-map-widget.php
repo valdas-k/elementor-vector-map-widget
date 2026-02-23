@@ -1,10 +1,10 @@
 <?php
-/**
+/*
  * Plugin Name: Elementor Vector Map Widget
  * Description: Adds a repeater-based vector map section to Elementor.
  * Version:     1.0
  * Author:      Valdas Kriūnas
- * Author URI:  https://github.com/valdas-kr
+ * Author URI:  https://github.com/valdas-k
  * Text Domain: elementor-vector-map-widget
  * Licence: GPLv3
  * Requires Plugins: elementor
