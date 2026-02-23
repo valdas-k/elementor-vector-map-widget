@@ -10,7 +10,7 @@ The plugin was tested and developed using *Hello Elementor* theme.
 
 # Installation
 
-To use this widget in Elementor, download the project folder and paste it into *wp-content/plugins* directory. Then activate the plugin in Wordpress.
+To use this widget in Elementor, download the project folder and paste it into *wp-content/plugins* directory. Then activate the plugin in WordPress.
 
 # Licence
 
