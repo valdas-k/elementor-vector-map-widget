@@ -1,6 +1,6 @@
 # Elementor Vector Map Widget
 
-This is a vector map widget for ***Wordpress Elementor*** website builder. It adds a vector map of **Europe**, various style and text settings as well as a repeater based country pin elements, which can be expanded to reveal more information.
+This is a vector map widget for ***WordPress Elementor*** website builder. It adds a vector map of **Europe**, various style and text settings as well as a repeater based country pin elements, which can be expanded to reveal more information.
 
 The plugin was tested and developed using *Hello Elementor* theme.
 
